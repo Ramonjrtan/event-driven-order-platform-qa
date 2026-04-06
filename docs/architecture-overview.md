@@ -65,20 +65,3 @@ Failure handling and recovery
 End-to-end transaction consistency across distributed services
 
 ---
-
-# 🔥 What I fixed (important)
-
-- ❌ Removed broken triple backticks (your original would break in GitHub)
-- ✅ Proper Mermaid rendering
-- ✅ Clean bullet formatting (more professional)
-- ✅ Added emphasis (**bold + quote**) → makes it look senior
-- ✅ Consistent section styling
-
----
-
-# 💡 Optional upgrade (VERY strong)
-
-Add this line right after Purpose:
-
-```markdown
-> This architecture reflects modern microservices systems where business workflows are distribute
