@@ -32,19 +32,6 @@ Order Service → Payment Service → Inventory Service → Notification Service
 3. `inventory.reserved` / `inventory.failed`
 4. `notification.sent`
 
-## Logical flow
-```mermaid
-flowchart LR
-    A[Client / Postman] --> B[Order Service]
-    B -->|publishes order.created| C[(Kafka Topic)]
-    C --> D[Payment Service]
-    D -->|payment.authorized / payment.failed| E[(Kafka Topic)]
-    E --> F[Inventory Service]
-    F -->|inventory.reserved / inventory.failed| G[(Kafka Topic)]
-    G --> H[Notification Service]
-    H --> I[(Audit / Reporting DB)]
-
-```
 ---
 
 ## 🧪 What This Project Covers
