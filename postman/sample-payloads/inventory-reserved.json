@@ -1,0 +1,6 @@
+{
+  "eventType": "inventory.reserved",
+  "orderId": "ORD-1001",
+  "correlationId": "CORR-1001",
+  "inventoryStatus": "RESERVED"
+}

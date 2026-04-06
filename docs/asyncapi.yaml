@@ -1,0 +1,99 @@
+asyncapi: 2.6.0
+info:
+  title: Event-Driven Order Platform
+  version: 1.0.0
+  description: Portfolio contract for async order workflow testing
+defaultContentType: application/json
+channels:
+  order.created:
+    subscribe:
+      message:
+        $ref: '#/components/messages/OrderCreated'
+  payment.authorized:
+    subscribe:
+      message:
+        $ref: '#/components/messages/PaymentAuthorized'
+  payment.failed:
+    subscribe:
+      message:
+        $ref: '#/components/messages/PaymentFailed'
+  inventory.reserved:
+    subscribe:
+      message:
+        $ref: '#/components/messages/InventoryReserved'
+  inventory.failed:
+    subscribe:
+      message:
+        $ref: '#/components/messages/InventoryFailed'
+  notification.sent:
+    subscribe:
+      message:
+        $ref: '#/components/messages/NotificationSent'
+
+components:
+  messages:
+    OrderCreated:
+      name: orderCreated
+      payload:
+        type: object
+        required: [eventType, orderId, correlationId, customerId, itemId, quantity, amount]
+        properties:
+          eventType: { type: string, example: order.created }
+          orderId: { type: string, example: ORD-1001 }
+          correlationId: { type: string, example: CORR-1001 }
+          customerId: { type: string, example: CUST-1001 }
+          itemId: { type: string, example: SKU-001 }
+          quantity: { type: integer, example: 2 }
+          amount: { type: number, format: double, example: 120.00 }
+    PaymentAuthorized:
+      name: paymentAuthorized
+      payload:
+        type: object
+        required: [eventType, orderId, correlationId, paymentStatus]
+        properties:
+          eventType: { type: string, example: payment.authorized }
+          orderId: { type: string }
+          correlationId: { type: string }
+          paymentStatus: { type: string, example: AUTHORIZED }
+    PaymentFailed:
+      name: paymentFailed
+      payload:
+        type: object
+        required: [eventType, orderId, correlationId, paymentStatus, reason]
+        properties:
+          eventType: { type: string, example: payment.failed }
+          orderId: { type: string }
+          correlationId: { type: string }
+          paymentStatus: { type: string, example: FAILED }
+          reason: { type: string, example: DECLINED }
+    InventoryReserved:
+      name: inventoryReserved
+      payload:
+        type: object
+        required: [eventType, orderId, correlationId, inventoryStatus]
+        properties:
+          eventType: { type: string, example: inventory.reserved }
+          orderId: { type: string }
+          correlationId: { type: string }
+          inventoryStatus: { type: string, example: RESERVED }
+    InventoryFailed:
+      name: inventoryFailed
+      payload:
+        type: object
+        required: [eventType, orderId, correlationId, inventoryStatus, reason]
+        properties:
+          eventType: { type: string, example: inventory.failed }
+          orderId: { type: string }
+          correlationId: { type: string }
+          inventoryStatus: { type: string, example: FAILED }
+          reason: { type: string, example: OUT_OF_STOCK }
+    NotificationSent:
+      name: notificationSent
+      payload:
+        type: object
+        required: [eventType, orderId, correlationId, notificationStatus]
+        properties:
+          eventType: { type: string, example: notification.sent }
+          orderId: { type: string }
+          correlationId: { type: string }
+          notificationStatus: { type: string, example: SENT }

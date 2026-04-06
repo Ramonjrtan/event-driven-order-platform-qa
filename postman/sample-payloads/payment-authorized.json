@@ -1,0 +1,6 @@
+{
+  "eventType": "payment.authorized",
+  "orderId": "ORD-1001",
+  "correlationId": "CORR-1001",
+  "paymentStatus": "AUTHORIZED"
+}

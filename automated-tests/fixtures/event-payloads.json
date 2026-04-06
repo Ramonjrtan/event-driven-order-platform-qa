@@ -1,0 +1,43 @@
+{
+  "orderCreated": {
+    "eventType": "order.created",
+    "orderId": "ORD-1001",
+    "correlationId": "CORR-1001",
+    "customerId": "CUST-1001",
+    "itemId": "SKU-001",
+    "quantity": 2,
+    "amount": 120.0
+  },
+  "paymentAuthorized": {
+    "eventType": "payment.authorized",
+    "orderId": "ORD-1001",
+    "correlationId": "CORR-1001",
+    "paymentStatus": "AUTHORIZED"
+  },
+  "paymentFailed": {
+    "eventType": "payment.failed",
+    "orderId": "ORD-1001",
+    "correlationId": "CORR-1001",
+    "paymentStatus": "FAILED",
+    "reason": "DECLINED"
+  },
+  "inventoryReserved": {
+    "eventType": "inventory.reserved",
+    "orderId": "ORD-1001",
+    "correlationId": "CORR-1001",
+    "inventoryStatus": "RESERVED"
+  },
+  "inventoryFailed": {
+    "eventType": "inventory.failed",
+    "orderId": "ORD-1001",
+    "correlationId": "CORR-1001",
+    "inventoryStatus": "FAILED",
+    "reason": "OUT_OF_STOCK"
+  },
+  "notificationSent": {
+    "eventType": "notification.sent",
+    "orderId": "ORD-1001",
+    "correlationId": "CORR-1001",
+    "notificationStatus": "SENT"
+  }
+}

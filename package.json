@@ -1,0 +1,12 @@
+{
+  "name": "event-driven-order-platform-qa",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio repo for event-driven testing",
+  "scripts": {
+    "test": "jest --runInBand"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
