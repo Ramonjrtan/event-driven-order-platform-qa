@@ -6,8 +6,7 @@ This project simulates **QA validation for an event-driven, asynchronous order p
 ---
 
 ## 🔄 Logical Flow
-
-```mermaid
+mermaid
 flowchart LR
     A[Client / Postman] --> B[Order Service]
     B -->|publishes order.created| C[(Kafka Topic)]
@@ -17,6 +16,7 @@ flowchart LR
     F -->|inventory.reserved / inventory.failed| G[(Kafka Topic)]
     G --> H[Notification Service]
     H --> I[(Audit / Reporting DB)]
+
 
 🧪 QA Focus Areas
 
