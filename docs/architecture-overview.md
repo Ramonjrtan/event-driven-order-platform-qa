@@ -23,26 +23,26 @@ flowchart LR
 
 This project demonstrates how QA validates end-to-end behavior in asynchronous systems, not just individual APIs:
 
-API request and response validation
-Event payload structure and contract validation
-Event publishing and consumption verification
-Correct event sequencing across services
-Idempotency and duplicate event handling
-Retry, recovery, and failure isolation
-End-to-end workflow validation
-Final-state data reconciliation (DB vs events)
----
+- API request and response validation
+- Event payload structure and contract validation
+- Event publishing and consumption verification
+- Correct event sequencing across services
+- Idempotency and duplicate event handling
+- Retry, recovery, and failure isolation
+- End-to-end workflow validation
+- Final-state data reconciliation (DB vs events)
+
 ## ⚠️ Key Non-Functional Risks
 
 Event-driven systems introduce risks that traditional testing often misses:
 
-Duplicate event processing (idempotency issues)
-Out-of-order event arrival
-Poison messages blocking consumers
-Eventual consistency delays
-Partial failures between services
-Data inconsistency across distributed components
----
+- Duplicate event processing (idempotency issues)
+- Out-of-order event arrival
+- Poison messages blocking consumers
+- Eventual consistency delays
+- Partial failures between services
+- Data inconsistency across distributed components
+
 ## 🧠 QA Perspective
 
 In this architecture, QA is not limited to validating API responses.
@@ -53,11 +53,11 @@ The system produces the correct final business outcome, even when processing is 
 
 This requires validating:
 
-Event lifecycle (publish → consume → outcome)
-System state transitions
-Cross-service data consistency
-Resilience under failure conditions
----
+- Event lifecycle (publish → consume → outcome)
+- System state transitions
+- Cross-service data consistency
+- Resilience under failure conditions
+
 ## 💡 Summary
 
 This architecture represents a typical event-driven workflow where services communicate asynchronously via Kafka.
