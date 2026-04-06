@@ -33,7 +33,7 @@ End-to-end workflow validation
 Final-state data reconciliation (DB vs events)
 
 ```
-
+```
 ⚠️ Key Non-Functional Risks
 
 Event-driven systems introduce risks that traditional testing often misses:
@@ -46,7 +46,7 @@ Partial failures between services
 Data inconsistency across distributed components
 
 ```
-
+```
 🧠 QA Perspective
 
 In this architecture, QA is not limited to validating API responses.
@@ -63,7 +63,7 @@ Cross-service data consistency
 Resilience under failure conditions
 
 ```
-
+```
 💡 Summary
 
 This repository demonstrates how to test modern event-driven systems by validating:
