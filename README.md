@@ -6,7 +6,7 @@
 
 ## 🧠 Architecture Overview
 
-![Architecture Diagram](./docs/event-driven-architecture.png)
+![Architecture Diagram](./docs/Event-driven order processing diagram.png)
 
 *Figure: End-to-end event-driven order processing flow with QA validation points across API, events, and data layers.*
 
