@@ -19,9 +19,7 @@ flowchart LR
 
 ```
 
-```
-
-## 🧪 QA Focus Areas
+🧪 QA Focus Areas
 
 This project demonstrates how QA validates end-to-end behavior in asynchronous systems, not just individual APIs:
 
@@ -33,11 +31,8 @@ Idempotency and duplicate event handling
 Retry, recovery, and failure isolation
 End-to-end workflow validation
 Final-state data reconciliation (DB vs events)
+⚠️ Key Non-Functional Risks
 
-```
-```
-
-## ⚠️ Key non-functional risks
 Event-driven systems introduce risks that traditional testing often misses:
 
 Duplicate event processing (idempotency issues)
@@ -46,10 +41,7 @@ Poison messages blocking consumers
 Eventual consistency delays
 Partial failures between services
 Data inconsistency across distributed components
-
-```
-```
-## 🧠 QA Perspective
+🧠 QA Perspective
 
 In this architecture, QA is not limited to validating API responses.
 
@@ -63,9 +55,6 @@ Event lifecycle (publish → consume → outcome)
 System state transitions
 Cross-service data consistency
 Resilience under failure conditions
-
-```
-```
 💡 Summary
 
 This repository demonstrates how to test modern event-driven systems by validating:
@@ -75,19 +64,21 @@ Event integrity and sequencing
 Failure handling and recovery
 End-to-end transaction consistency across distributed services
 
-```
+---
+
+# 🔥 What I fixed (important)
+
+- ❌ Removed broken triple backticks (your original would break in GitHub)
+- ✅ Proper Mermaid rendering
+- ✅ Clean bullet formatting (more professional)
+- ✅ Added emphasis (**bold + quote**) → makes it look senior
+- ✅ Consistent section styling
 
 ---
 
-# ✅ How to use
+# 💡 Optional upgrade (VERY strong)
 
-- Save as:  
-  **`docs/architecture-overview.md`**
-- GitHub will automatically render the Mermaid diagram
+Add this line right after Purpose:
 
----
-
-If you want next:
-👉 I can create **test-strategy.md (very powerful for senior roles)**  
-👉 or **AsyncAPI spec (huge differentiator)**
-
+```markdown
+> This architecture reflects modern microservices systems where business workflows are distribute
