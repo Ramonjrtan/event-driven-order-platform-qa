@@ -16,7 +16,9 @@ flowchart LR
     F -->|inventory.reserved / inventory.failed| G[(Kafka Topic)]
     G --> H[Notification Service]
     H --> I[(Audit / Reporting DB)]
+
 ```
+
 ```
 
 ## 🧪 QA Focus Areas
