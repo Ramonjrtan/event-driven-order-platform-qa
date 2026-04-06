@@ -2,16 +2,6 @@
 
 > Demonstrates how to test modern event-driven systems by validating asynchronous workflows, event integrity, and end-to-end business outcomes across distributed services.
 
----
-
-## 🧠 Architecture Overview
-
-![Architecture Diagram](./docs/Event-driven%20order%20processing%20diagram.png)
-
-*Figure: End-to-end event-driven order processing flow with QA validation points across API, events, and data layers.*
-
----
-
 ## 🎯 Objective
 
 This repository showcases a **senior-level QA approach** to testing distributed, event-driven systems.
