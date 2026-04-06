@@ -32,6 +32,7 @@ Retry, recovery, and failure isolation
 End-to-end workflow validation
 Final-state data reconciliation (DB vs events)
 ```
+```
 ⚠️ Key Non-Functional Risks
 
 Event-driven systems introduce risks that traditional testing often misses:
@@ -42,6 +43,7 @@ Poison messages blocking consumers
 Eventual consistency delays
 Partial failures between services
 Data inconsistency across distributed components
+```
 ```
 🧠 QA Perspective
 
@@ -57,6 +59,7 @@ Event lifecycle (publish → consume → outcome)
 System state transitions
 Cross-service data consistency
 Resilience under failure conditions
+```
 ```
 💡 Summary
 
