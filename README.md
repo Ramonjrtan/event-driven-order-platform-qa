@@ -35,19 +35,6 @@ The platform simulates an **event-driven order processing system**, where servic
 ```text
 Order Service → Payment Service → Inventory Service → Notification Service
 ```
-## Logical flow
-```mermaid
-flowchart LR
-    A[Client / Postman] --> B[Order Service]
-    B -->|publishes order.created| C[(Kafka Topic)]
-    C --> D[Payment Service]
-    D -->|payment.authorized / payment.failed| E[(Kafka Topic)]
-    E --> F[Inventory Service]
-    F -->|inventory.reserved / inventory.failed| G[(Kafka Topic)]
-    G --> H[Notification Service]
-    H --> I[(Audit / Reporting DB)]
-
-```
 ### Event Sequence
 
 1. `order.created`
