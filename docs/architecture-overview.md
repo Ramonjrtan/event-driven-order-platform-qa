@@ -17,6 +17,7 @@ flowchart LR
     F -->|inventory.reserved / inventory.failed| G[(Kafka Topic)]
     G --> H[Notification Service]
     H --> I[(Audit / Reporting DB)]
+
 🧪 QA Focus Areas
 
 This project demonstrates how QA validates end-to-end behavior in asynchronous systems, not just individual APIs:
