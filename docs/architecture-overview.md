@@ -31,9 +31,6 @@ Idempotency and duplicate event handling
 Retry, recovery, and failure isolation
 End-to-end workflow validation
 Final-state data reconciliation (DB vs events)
-
-```
-```
 ⚠️ Key Non-Functional Risks
 
 Event-driven systems introduce risks that traditional testing often misses:
@@ -44,9 +41,6 @@ Poison messages blocking consumers
 Eventual consistency delays
 Partial failures between services
 Data inconsistency across distributed components
-
-```
-```
 🧠 QA Perspective
 
 In this architecture, QA is not limited to validating API responses.
@@ -61,16 +55,8 @@ Event lifecycle (publish → consume → outcome)
 System state transitions
 Cross-service data consistency
 Resilience under failure conditions
-
-```
-```
 💡 Summary
 
-This repository demonstrates how to test modern event-driven systems by validating:
+This architecture represents a typical event-driven workflow where services communicate asynchronously via Kafka.
 
-Asynchronous workflows
-Event integrity and sequencing
-Failure handling and recovery
-End-to-end transaction consistency across distributed services
-
----
+It highlights how QA must evolve from simple API validation to full system validation across distributed services, ensuring that business workflows remain correct even under complex, real-world conditions.
