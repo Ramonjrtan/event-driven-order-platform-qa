@@ -2,7 +2,7 @@
 
 ## 🎯 Purpose
 This project simulates **QA validation for an event-driven, asynchronous order processing platform**, focusing on how distributed services interact through events and how QA ensures **data integrity, system reliability, and correct business outcomes**.
----
+
 
 ## 🧠 Architecture Overview
 
@@ -10,7 +10,7 @@ This project simulates **QA validation for an event-driven, asynchronous order p
 
 *Figure: End-to-end event-driven order processing flow with QA validation points across API, events, and data layers.*
 
----
+
 
 ---
 
