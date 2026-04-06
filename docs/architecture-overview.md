@@ -6,7 +6,7 @@ This project simulates **QA validation for an event-driven, asynchronous order p
 
 ## 🧠 Architecture Overview
 
-![Architecture Diagram](./docs/Event-driven%20order%20processing%20diagram.png)
+![Architecture Diagram](./Event-driven%20order%20processing%20diagram.png)
 
 *Figure: End-to-end event-driven order processing flow with QA validation points across API, events, and data layers.*
 
