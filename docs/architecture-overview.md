@@ -19,7 +19,7 @@ flowchart LR
 
 ```
 
-🧪 QA Focus Areas
+## 🧪 QA Focus Areas
 
 This project demonstrates how QA validates end-to-end behavior in asynchronous systems, not just individual APIs:
 
@@ -33,7 +33,7 @@ End-to-end workflow validation
 Final-state data reconciliation (DB vs events)
 ```
 ```
-⚠️ Key Non-Functional Risks
+## ⚠️ Key Non-Functional Risks
 
 Event-driven systems introduce risks that traditional testing often misses:
 
@@ -45,7 +45,7 @@ Partial failures between services
 Data inconsistency across distributed components
 ```
 ```
-🧠 QA Perspective
+## 🧠 QA Perspective
 
 In this architecture, QA is not limited to validating API responses.
 
@@ -61,7 +61,7 @@ Cross-service data consistency
 Resilience under failure conditions
 ```
 ```
-💡 Summary
+## 💡 Summary
 
 This architecture represents a typical event-driven workflow where services communicate asynchronously via Kafka.
 
