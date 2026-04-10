@@ -91,7 +91,6 @@ Structured Excel pack for scenario coverage, execution tracking, and traceabilit
 
 Files:
 - `test-artifacts/Event_Driven_Order_Platform_QA_Test_Pack.xlsx`
-- `test-artifacts/Event_Driven_Order_Platform_QA_Test_Pack_old.xlsx`
 
 ### 2) API and payload assets
 - Postman collection for order creation
