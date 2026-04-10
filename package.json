@@ -4,7 +4,11 @@
   "private": true,
   "description": "Portfolio repo for event-driven testing",
   "scripts": {
-    "test": "jest --runInBand"
+    "test": "jest --runInBand",
+    "test:api": "jest automated-tests/api",
+    "test:event": "jest automated-tests/event",
+    "test:integration": "jest automated-tests/integration",
+    "test:all": "jest automated-tests"
   },
   "devDependencies": {
     "jest": "^29.7.0"

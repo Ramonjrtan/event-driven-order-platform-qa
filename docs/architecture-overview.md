@@ -1,74 +1,77 @@
-# 🏗️ Architecture Overview
+# Architecture Overview
 
-## 🎯 Purpose
-This project simulates **QA validation for an event-driven, asynchronous order processing platform**, focusing on how distributed services interact through events and how QA ensures **data integrity, system reliability, and correct business outcomes**.
+## Summary
 
+This sample platform models an event-driven order lifecycle where a single business transaction crosses multiple services and completes asynchronously.
 
-## 🧠 Architecture Overview
+The design emphasizes the kinds of risks QA must validate in modern distributed systems: eventual consistency, partial failures, duplicate messages, and traceability across services.
 
-![Architecture Diagram](./Event-driven%20order%20processing%20diagram.png)
+## Service landscape
 
-*Figure: End-to-end event-driven order processing flow with QA validation points across API, events, and data layers.*
+### Order Service
+Receives the initial order request and emits `order.created` after the order record is persisted.
 
+### Payment Service
+Consumes `order.created`, attempts authorization, and emits either `payment.authorized` or `payment.failed`.
 
+### Inventory Service
+Consumes payment success events and attempts stock reservation. It emits `inventory.reserved` or `inventory.failed`.
 
----
+### Notification Service
+Consumes the final business outcome and emits `notification.sent` after customer communication is recorded.
 
-## Logical flow
-```mermaid
-flowchart LR
-    A[Client / Postman] --> B[Order Service]
-    B -->|publishes order.created| C[(Kafka Topic)]
-    C --> D[Payment Service]
-    D -->|payment.authorized / payment.failed| E[(Kafka Topic)]
-    E --> F[Inventory Service]
-    F -->|inventory.reserved / inventory.failed| G[(Kafka Topic)]
-    G --> H[Notification Service]
-    H --> I[(Audit / Reporting DB)]
+## Reference flow
 
+```text
+Client/API
+  -> Order Service
+      -> order.created
+          -> Payment Service
+              -> payment.authorized / payment.failed
+                  -> Inventory Service
+                      -> inventory.reserved / inventory.failed
+                          -> Notification Service
+                              -> notification.sent
 ```
 
-## 🧪 QA Focus Areas
+## Business keys that must remain traceable
 
-This project demonstrates how QA validates end-to-end behavior in asynchronous systems, not just individual APIs:
+- `orderId`
+- `correlationId`
+- `customerId`
+- `itemId`
 
-- API request and response validation
-- Event payload structure and contract validation
-- Event publishing and consumption verification
-- Correct event sequencing across services
-- Idempotency and duplicate event handling
-- Retry, recovery, and failure isolation
-- End-to-end workflow validation
-- Final-state data reconciliation (DB vs events)
+These identifiers are used in both functional and reconciliation checks.
 
-## ⚠️ Key Non-Functional Risks
+## Validation points by layer
 
-Event-driven systems introduce risks that traditional testing often misses:
+### API layer
+- request accepted with valid payload
+- order persisted with the correct initial state
+- response returns usable business identifiers
 
-- Duplicate event processing (idempotency issues)
-- Out-of-order event arrival
-- Poison messages blocking consumers
-- Eventual consistency delays
-- Partial failures between services
-- Data inconsistency across distributed components
+### Event layer
+- correct topic and event type emitted
+- required fields populated
+- payload matches contract
+- correlation ID carried forward correctly
 
-## 🧠 QA Perspective
+### Consumer layer
+- consumers process only valid and relevant events
+- downstream actions occur once
+- retries do not create duplicate business effects
 
-In this architecture, QA is not limited to validating API responses.
+### Data layer
+- final order status reflects the actual outcome
+- payment and inventory state align with the order state
+- audit records show a complete and explainable trail
 
-Instead, QA ensures:
+## QA implications
 
-The system produces the correct final business outcome, even when processing is asynchronous, distributed, and failure-prone.
+Testing should not stop at the initial API success response. A real pass condition requires confirming that the full transaction finished correctly across:
 
-This requires validating:
-
-- Event lifecycle (publish → consume → outcome)
-- System state transitions
-- Cross-service data consistency
-- Resilience under failure conditions
-
-## 💡 Summary
-
-This architecture represents a typical event-driven workflow where services communicate asynchronously via Kafka.
-
-It highlights how QA must evolve from simple API validation to full system validation across distributed services, ensuring that business workflows remain correct even under complex, real-world conditions.
+- emitted events
+- consumer outcomes
+- persisted data
+- audit trail
+- user-visible final status
